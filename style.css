@@ -1,0 +1,40 @@
+.textarea {
+    width: 750px;
+    height: 200px;
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+    color: darkslategrey;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.keyboard-wrapper {
+    width: 750px;
+    background-color:gray;
+}
+
+.button-active {
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    border-color: mintcream;
+    font-size: 15px;
+    transition: 0.15s;
+}
+
+.button-dark {
+    background-color: silver;
+}
+
+.button-active:active {
+    background-color: darkseagreen;
+    /* color: white; */
+}
+
+.button-active:hover {
+    border-color: darkseagreen;
+}
