@@ -177,7 +177,7 @@ const keyboardConfig = [
     symbol: 'Alt', altSymbol: 'Alt', size: 1, bg: 'dark', code: 'AltLeft',
   },
   {
-    symbol: '⌞⌟', altSymbol: '', size: 7, bg: 'dark', code: 'Space',
+    symbol: '⌞⌟', altSymbol: '⌞⌟', size: 7, bg: 'dark', code: 'Space',
   },
   {
     symbol: 'Alt', altSymbol: 'Alt', size: 1, bg: 'dark', code: 'AltRight',
