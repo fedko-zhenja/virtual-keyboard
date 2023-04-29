@@ -3,7 +3,7 @@ import { Button } from '../Button/button.js';
 
 const keyboardConfig = [
   {
-    symbol: '`', altSymbol: 'ё', size: 1, code: 'Backquote',
+    symbol: '`', altSymbol: 'ё', size: 1, code: 'Backquote', caps: true,
   },
   {
     symbol: '1', altSymbol: '!', size: 1, code: 'Digit1',
@@ -48,40 +48,40 @@ const keyboardConfig = [
     symbol: 'Tab', altSymbol: 'Tab', size: 1, bg: 'dark', code: 'Tab',
   },
   {
-    symbol: 'q', altSymbol: 'й', size: 1, code: 'KeyQ',
+    symbol: 'q', altSymbol: 'й', size: 1, code: 'KeyQ', caps: true,
   },
   {
-    symbol: 'w', altSymbol: 'ц', size: 1, code: 'KeyW',
+    symbol: 'w', altSymbol: 'ц', size: 1, code: 'KeyW', caps: true,
   },
   {
-    symbol: 'e', altSymbol: 'у', size: 1, code: 'KeyE',
+    symbol: 'e', altSymbol: 'у', size: 1, code: 'KeyE', caps: true,
   },
   {
-    symbol: 'r', altSymbol: 'к', size: 1, code: 'KeyR',
+    symbol: 'r', altSymbol: 'к', size: 1, code: 'KeyR', caps: true,
   },
   {
-    symbol: 't', altSymbol: 'е', size: 1, code: 'KeyT',
+    symbol: 't', altSymbol: 'е', size: 1, code: 'KeyT', caps: true,
   },
   {
-    symbol: 'y', altSymbol: 'н', size: 1, code: 'KeyY',
+    symbol: 'y', altSymbol: 'н', size: 1, code: 'KeyY', caps: true,
   },
   {
-    symbol: 'u', altSymbol: 'г', size: 1, code: 'KeyU',
+    symbol: 'u', altSymbol: 'г', size: 1, code: 'KeyU', caps: true,
   },
   {
-    symbol: 'i', altSymbol: 'ш', size: 1, code: 'KeyI',
+    symbol: 'i', altSymbol: 'ш', size: 1, code: 'KeyI', caps: true,
   },
   {
-    symbol: 'o', altSymbol: 'щ', size: 1, code: 'KeyO',
+    symbol: 'o', altSymbol: 'щ', size: 1, code: 'KeyO', caps: true,
   },
   {
-    symbol: 'p', altSymbol: 'з', size: 1, code: 'KeyP',
+    symbol: 'p', altSymbol: 'з', size: 1, code: 'KeyP', caps: true,
   },
   {
-    symbol: '[', altSymbol: 'х', size: 1, code: 'BracketLeft',
+    symbol: '[', altSymbol: 'х', size: 1, code: 'BracketLeft', caps: true,
   },
   {
-    symbol: ']', altSymbol: 'ъ', size: 1, code: 'BracketRight',
+    symbol: ']', altSymbol: 'ъ', size: 1, code: 'BracketRight', caps: true,
   },
   {
     symbol: '\\', altSymbol: '\\', size: 1, code: 'Backslash',
@@ -93,37 +93,37 @@ const keyboardConfig = [
     symbol: 'CapsLock', altSymbol: 'CapsLock', size: 2, bg: 'dark', code: 'CapsLock',
   },
   {
-    symbol: 'a', altSymbol: 'ф', size: 1, code: 'KeyA',
+    symbol: 'a', altSymbol: 'ф', size: 1, code: 'KeyA', caps: true,
   },
   {
-    symbol: 's', altSymbol: 'ы', size: 1, code: 'KeyS',
+    symbol: 's', altSymbol: 'ы', size: 1, code: 'KeyS', caps: true,
   },
   {
-    symbol: 'd', altSymbol: 'в', size: 1, code: 'KeyD',
+    symbol: 'd', altSymbol: 'в', size: 1, code: 'KeyD', caps: true,
   },
   {
-    symbol: 'f', altSymbol: 'а', size: 1, code: 'KeyF',
+    symbol: 'f', altSymbol: 'а', size: 1, code: 'KeyF', caps: true,
   },
   {
-    symbol: 'g', altSymbol: 'п', size: 1, code: 'KeyG',
+    symbol: 'g', altSymbol: 'п', size: 1, code: 'KeyG', caps: true,
   },
   {
-    symbol: 'h', altSymbol: 'р', size: 1, code: 'KeyH',
+    symbol: 'h', altSymbol: 'р', size: 1, code: 'KeyH', caps: true,
   },
   {
-    symbol: 'j', altSymbol: 'о', size: 1, code: 'KeyJ',
+    symbol: 'j', altSymbol: 'о', size: 1, code: 'KeyJ', caps: true,
   },
   {
-    symbol: 'k', altSymbol: 'л', size: 1, code: 'KeyK',
+    symbol: 'k', altSymbol: 'л', size: 1, code: 'KeyK', caps: true,
   },
   {
-    symbol: 'l', altSymbol: 'д', size: 1, code: 'KeyL',
+    symbol: 'l', altSymbol: 'д', size: 1, code: 'KeyL', caps: true,
   },
   {
-    symbol: ';', altSymbol: 'ж', size: 1, code: 'Semicolon',
+    symbol: ';', altSymbol: 'ж', size: 1, code: 'Semicolon', caps: true,
   },
   {
-    symbol: "'", altSymbol: 'э', size: 1, code: 'Quote',
+    symbol: "'", altSymbol: 'э', size: 1, code: 'Quote', caps: true,
   },
   {
     symbol: 'Enter', altSymbol: 'Enter', size: 2, bg: 'dark', code: 'Enter',
@@ -132,34 +132,34 @@ const keyboardConfig = [
     symbol: 'Shift', altSymbol: 'Shift', size: 2, bg: 'dark', code: 'ShiftLeft',
   },
   {
-    symbol: 'z', altSymbol: '', size: 1, code: 'KeyZ',
+    symbol: 'z', altSymbol: 'я', size: 1, code: 'KeyZ', caps: true,
   },
   {
-    symbol: 'x', altSymbol: '', size: 1, code: 'KeyX',
+    symbol: 'x', altSymbol: 'ч', size: 1, code: 'KeyX', caps: true,
   },
   {
-    symbol: 'c', altSymbol: '', size: 1, code: 'KeyC',
+    symbol: 'c', altSymbol: 'с', size: 1, code: 'KeyC', caps: true,
   },
   {
-    symbol: 'v', altSymbol: '', size: 1, code: 'KeyV',
+    symbol: 'v', altSymbol: 'м', size: 1, code: 'KeyV', caps: true,
   },
   {
-    symbol: 'b', altSymbol: '', size: 1, code: 'KeyB',
+    symbol: 'b', altSymbol: 'и', size: 1, code: 'KeyB', caps: true,
   },
   {
-    symbol: 'n', altSymbol: '', size: 1, code: 'KeyN',
+    symbol: 'n', altSymbol: 'т', size: 1, code: 'KeyN', caps: true,
   },
   {
-    symbol: 'm', altSymbol: '', size: 1, code: 'KeyM',
+    symbol: 'm', altSymbol: 'ь', size: 1, code: 'KeyM', caps: true,
   },
   {
-    symbol: ',', altSymbol: '', size: 1, code: 'Comma',
+    symbol: ',', altSymbol: 'б', size: 1, code: 'Comma',
   },
   {
-    symbol: '.', altSymbol: '', size: 1, code: 'Period',
+    symbol: '.', altSymbol: 'ю', size: 1, code: 'Period',
   },
   {
-    symbol: '/', altSymbol: '', size: 1, code: 'Slash',
+    symbol: '/', altSymbol: '.', size: 1, code: 'Slash',
   },
   {
     symbol: '▲', altSymbol: '▲', size: 1, bg: 'dark', code: 'ArrowUp',
@@ -205,12 +205,14 @@ export class Keyboard {
         size: value.size,
         bg: value.bg,
         code: value.code,
+        caps: value.caps,
       };
 
       return new Button(data);
     });
 
     const buttonElements = this.keyboard.map((value) => {
+      // console.log(value.symbol);
       if (value.bg === 'dark') {
         value.button.classList.add('button-dark');
       }
@@ -235,27 +237,33 @@ export class Keyboard {
         textArea.value += ' ';
       } else if (event.target.innerText === 'Tab') {
         textArea.value += '    ';
+      } else if (event.target.innerText === 'CapsLock') {
+        textArea.value += '';
       } else {
         textArea.value += event.target.innerText;
       }
     }
 
     this.wrapper.addEventListener('click', clickBtn);
-
+    // ниже делаю ввод нажатых клавиш в textarea
     document.addEventListener('keydown', (event) => {
       const textArea = document.querySelector('.textarea');
+      const buttonActive = document.querySelectorAll('.button-active');
+
       if (event.key === '⌞⌟') {
         textArea.value += ' ';
       } else if (event.key === 'Tab') {
         textArea.value += '    ';
+      } else if (event.key === 'CapsLock') {
+        textArea.value += '';
       } else {
         textArea.value += event.key;
       }
-
-      const buttonActive = document.querySelectorAll('.button-active');
+      // ниже добавляю и удаляю анимацию кнопок при нажатии клавиш
       buttonActive.forEach((el) => {
+        // console.log(el.innerText);
         el.classList.remove('click-active');
-        if (el.id === event.code) {
+        if (el.id === event.code && el.id !== 'CapsLock') {
           el.classList.add('click-active');
 
           el.addEventListener('animationend', () => {
