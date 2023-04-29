@@ -38,3 +38,19 @@
 .button-active:hover {
     border-color: darkseagreen;
 }
+
+.click-active {
+    /* background-color: darkseagreen; */
+    animation-duration: 0.25s;
+    animation-name: anima;
+}
+
+@keyframes anima {
+    from {
+      background-color: darkseagreen;
+    }
+  
+    to {
+        background-color: rgb(240, 240, 240);
+    }
+  }

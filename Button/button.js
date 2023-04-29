@@ -4,6 +4,7 @@ export class Button {
     this.altSymbol = data.altSymbol;
     this.size = data.size;
     this.bg = data.bg;
+    this.code = data.code;
 
     if (data.onclick === undefined) {
       this.onclick = () => {
