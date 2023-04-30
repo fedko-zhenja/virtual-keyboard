@@ -70,27 +70,39 @@ export class Button {
         this.caps = false;
       }
     });
-
+    // ниже меняю язык
     let altShift = [];
     this.language = 'en';
     document.addEventListener('keydown', (event) => {
-      if (event.code === 'ControlLeft' || event.code === 'AltLeft') {
-        altShift.push(event.code);
+      if (event.key === 'Control' || event.key === 'Alt') {
+        altShift.push(event.key);
+      }
+
+      if (altShift[0] === 'Alt' && altShift[1] === 'Alt') {
+        altShift = [];
+      } else if (altShift[0] === 'Control' && altShift[1] === 'Control') {
+        altShift = [];
       }
 
       if (altShift.length === 2 && this.language === 'en') {
-        // console.log(altShift);
-        this.button.innerText = this.altSymbol;
+        if (this.caps === false) {
+          this.button.innerText = this.altSymbol;
+        } else if (this.caps === true) {
+          this.button.innerText = this.altSymbol.toUpperCase();
+        }
+
         altShift = [];
         this.language = 'ru';
       } else if (altShift.length === 2 && this.language === 'ru') {
-        // console.log(altShift);
-        this.button.innerText = this.symbol;
+        if (this.caps === false) {
+          this.button.innerText = this.symbol;
+        } else if (this.caps === true) {
+          this.button.innerText = this.symbol.toUpperCase();
+        }
+
         altShift = [];
         this.language = 'en';
       }
-
-    //   event.code === 'ControlRight' || event.code === 'AltRight'
     });
   }
 }

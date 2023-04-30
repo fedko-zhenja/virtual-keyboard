@@ -237,12 +237,16 @@ export class Keyboard {
         textArea.value += ' ';
       } else if (event.target.innerText === 'Tab') {
         textArea.value += '    ';
-      } else if (event.target.innerText === 'CapsLock') {
+      } else if (event.target.innerText === 'CapsLock' || event.target.innerText === 'Ctrl' || event.target.innerText === 'Alt' || event.target.innerText === 'Shift') {
         textArea.value += '';
       } else {
         textArea.value += event.target.innerText;
       }
     }
+
+    // const btn = new Button();
+    // const lng = btn.language;
+    // console.log(lng);
 
     this.wrapper.addEventListener('click', clickBtn);
     // ниже делаю ввод нажатых клавиш в textarea
@@ -254,10 +258,12 @@ export class Keyboard {
         textArea.value += ' ';
       } else if (event.key === 'Tab') {
         textArea.value += '    ';
-      } else if (event.key === 'CapsLock') {
+      } else if (event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift') {
         textArea.value += '';
       } else {
-        textArea.value += event.key;
+        const btnn = document.getElementById(`${event.code}`);
+        // console.log()
+        textArea.value += btnn.innerText;
       }
       // ниже добавляю и удаляю анимацию кнопок при нажатии клавиш
       buttonActive.forEach((el) => {
