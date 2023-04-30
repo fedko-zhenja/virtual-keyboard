@@ -153,10 +153,10 @@ const keyboardConfig = [
     symbol: 'm', altSymbol: 'ь', size: 1, code: 'KeyM', caps: true,
   },
   {
-    symbol: ',', altSymbol: 'б', size: 1, code: 'Comma',
+    symbol: ',', altSymbol: 'б', size: 1, code: 'Comma', caps: true,
   },
   {
-    symbol: '.', altSymbol: 'ю', size: 1, code: 'Period',
+    symbol: '.', altSymbol: 'ю', size: 1, code: 'Period', caps: true,
   },
   {
     symbol: '/', altSymbol: '.', size: 1, code: 'Slash',

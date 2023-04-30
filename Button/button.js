@@ -104,5 +104,86 @@ export class Button {
         this.language = 'en';
       }
     });
+    // нажатие на shift на клавиатуре физической
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Shift' && this.language === 'en') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.symbol.toLowerCase();
+          } else {
+            this.button.innerText = this.symbol.toUpperCase();
+          }
+        }
+      } else if (event.key === 'Shift' && this.language === 'ru') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.altSymbol.toLowerCase();
+          } else {
+            this.button.innerText = this.altSymbol.toUpperCase();
+          }
+        }
+      }
+    });
+
+    document.addEventListener('keyup', (event) => {
+      if (event.key === 'Shift' && this.language === 'en') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.symbol.toUpperCase();
+          } else {
+            this.button.innerText = this.symbol.toLowerCase();
+          }
+        }
+      } else if (event.key === 'Shift' && this.language === 'ru') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.altSymbol.toUpperCase();
+          } else {
+            this.button.innerText = this.altSymbol.toLowerCase();
+          }
+        }
+      }
+    });
+    // нажатие на shift на клавиатуре виртуальной
+    document.addEventListener('mousedown', (event) => {
+      if (event.target.innerText === 'Shift' && this.language === 'en') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.symbol.toLowerCase();
+          } else {
+            this.button.innerText = this.symbol.toUpperCase();
+          }
+        }
+      } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.altSymbol.toLowerCase();
+          } else {
+            this.button.innerText = this.altSymbol.toUpperCase();
+          }
+        }
+      }
+    });
+
+    document.addEventListener('mouseup', (event) => {
+      // console.log(event.target.innerText);
+      if (event.target.innerText === 'Shift' && this.language === 'en') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.symbol.toUpperCase();
+          } else {
+            this.button.innerText = this.symbol.toLowerCase();
+          }
+        }
+      } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
+        if (this.capsLock !== undefined) {
+          if (this.caps === true) {
+            this.button.innerText = this.altSymbol.toUpperCase();
+          } else {
+            this.button.innerText = this.altSymbol.toLowerCase();
+          }
+        }
+      }
+    });
   }
 }
