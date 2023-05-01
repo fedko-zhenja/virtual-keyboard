@@ -239,7 +239,7 @@ export class Keyboard {
         textArea.value += ' ';
       } else if (event.target.innerText === 'Tab') {
         textArea.value += '    ';
-      } else if (event.target.innerText === 'CapsLock' || event.target.innerText === 'Ctrl' || event.target.innerText === 'Alt' || event.target.innerText === 'Shift') {
+      } else if (event.target.innerText === 'CapsLock' || event.target.innerText === 'Ctrl' || event.target.innerText === 'Alt' || event.target.innerText === 'Shift' || event.target.innerText === 'Backspace' || event.target.innerText === '▶' || event.target.innerText === '▼' || event.target.innerText === '◀' || event.target.innerText === '▲' || event.target.innerText === 'Del' || event.target.innerText === 'Enter') {
         textArea.value += '';
       } else {
         textArea.value += event.target.innerText;
@@ -256,11 +256,16 @@ export class Keyboard {
         textArea.value += ' ';
       } else if (event.key === 'Tab') {
         textArea.value += '    ';
-      } else if (event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift') {
+      } else if (event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift' || event.key === 'Backspace' || event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Enter') {
         textArea.value += '';
       } else {
-        const btnn = document.getElementById(`${event.code}`);
-        textArea.value += btnn.innerText;
+        buttonActive.forEach((el) => {
+          if (el.id === event.code) {
+            textArea.value += el.innerText;
+          }
+        });
+        // const btnn = document.getElementById(`${event.code}`);
+        // textArea.value += btnn.innerText;
       }
       // ниже добавляю и удаляю анимацию кнопок при нажатии клавиш
       buttonActive.forEach((el) => {
