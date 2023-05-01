@@ -6,6 +6,9 @@ export class Button {
     this.bg = data.bg;
     this.code = data.code;
     this.capsLock = data.caps;
+    // this.shift = data.shift;
+    this.shiftEn = data.shiftEn;
+    this.shiftRu = data.shiftRu;
 
     this.language = 'en';
 
@@ -114,6 +117,12 @@ export class Button {
             this.button.innerText = this.symbol.toUpperCase();
           }
         }
+        // if (this.shift !== undefined) {
+        //   this.button.innerText = this.shift;
+        // }
+        if (this.shiftEn !== undefined) {
+          this.button.innerText = this.shiftEn;
+        }
       } else if (event.key === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -121,6 +130,12 @@ export class Button {
           } else {
             this.button.innerText = this.altSymbol.toUpperCase();
           }
+        }
+        // if (this.shift !== undefined) {
+        //   this.button.innerText = this.shift;
+        // }
+        if (this.shiftRu !== undefined) {
+          this.button.innerText = this.shiftRu;
         }
       }
     });
@@ -134,6 +149,10 @@ export class Button {
             this.button.innerText = this.symbol.toLowerCase();
           }
         }
+
+        if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
+          this.button.innerText = this.symbol;
+        }
       } else if (event.key === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -141,6 +160,12 @@ export class Button {
           } else {
             this.button.innerText = this.altSymbol.toLowerCase();
           }
+        }
+        // if (this.shift !== undefined) {
+        //   this.button.innerText = this.symbol;
+        // }
+        if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
+          this.button.innerText = this.altSymbol;
         }
       }
     });
@@ -154,6 +179,12 @@ export class Button {
             this.button.innerText = this.symbol.toUpperCase();
           }
         }
+        // if (this.shift !== undefined) {
+        //   this.button.innerText = this.shift;
+        // }
+        if (this.shiftEn !== undefined) {
+          this.button.innerText = this.shiftEn;
+        }
       } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -161,6 +192,9 @@ export class Button {
           } else {
             this.button.innerText = this.altSymbol.toUpperCase();
           }
+        }
+        if (this.shiftRu !== undefined) {
+          this.button.innerText = this.shiftRu;
         }
       }
     });
@@ -175,6 +209,12 @@ export class Button {
             this.button.innerText = this.symbol.toLowerCase();
           }
         }
+        // if (this.shift !== undefined) {
+        //   this.button.innerText = this.symbol;
+        // }
+        if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
+          this.button.innerText = this.symbol;
+        }
       } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -182,6 +222,12 @@ export class Button {
           } else {
             this.button.innerText = this.altSymbol.toLowerCase();
           }
+        }
+        // if (this.shift !== undefined) {
+        //   this.button.innerText = this.symbol;
+        // }
+        if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
+          this.button.innerText = this.altSymbol;
         }
       }
     });

@@ -3,43 +3,43 @@ import { Button } from '../Button/button.js';
 
 const keyboardConfig = [
   {
-    symbol: '`', altSymbol: 'ё', size: 1, code: 'Backquote', caps: true,
+    symbol: '`', altSymbol: 'ё', size: 1, code: 'Backquote', caps: true, shiftEn: '~',
   },
   {
-    symbol: '1', altSymbol: '!', size: 1, code: 'Digit1',
+    symbol: '1', altSymbol: '1', size: 1, code: 'Digit1', shiftEn: '!', shiftRu: '!',
   },
   {
-    symbol: '2', altSymbol: '@', size: 1, code: 'Digit2',
+    symbol: '2', altSymbol: '2', size: 1, code: 'Digit2', shiftEn: '@', shiftRu: '"',
   },
   {
-    symbol: '3', altSymbol: '#', size: 1, code: 'Digit3',
+    symbol: '3', altSymbol: '3', size: 1, code: 'Digit3', shiftEn: '#', shiftRu: '№',
   },
   {
-    symbol: '4', altSymbol: '$', size: 1, code: 'Digit4',
+    symbol: '4', altSymbol: '4', size: 1, code: 'Digit4', shiftEn: '$', shiftRu: ';',
   },
   {
-    symbol: '5', altSymbol: '%', size: 1, code: 'Digit5',
+    symbol: '5', altSymbol: '5', size: 1, code: 'Digit5', shiftEn: '%', shiftRu: '%',
   },
   {
-    symbol: '6', altSymbol: '^', size: 1, code: 'Digit6',
+    symbol: '6', altSymbol: '6', size: 1, code: 'Digit6', shiftEn: '^', shiftRu: ':',
   },
   {
-    symbol: '7', altSymbol: '&', size: 1, code: 'Digit7',
+    symbol: '7', altSymbol: '7', size: 1, code: 'Digit7', shiftEn: '&', shiftRu: '?',
   },
   {
-    symbol: '8', altSymbol: '*', size: 1, code: 'Digit8',
+    symbol: '8', altSymbol: '8', size: 1, code: 'Digit8', shiftEn: '*', shiftRu: '*',
   },
   {
-    symbol: '9', altSymbol: '(', size: 1, code: 'Digit9',
+    symbol: '9', altSymbol: '9', size: 1, code: 'Digit9', shiftEn: '(', shiftRu: '(',
   },
   {
-    symbol: '0', altSymbol: ')', size: 1, code: 'Digit0',
+    symbol: '0', altSymbol: '0', size: 1, code: 'Digit0', shiftEn: ')', shiftRu: ')',
   },
   {
-    symbol: '-', altSymbol: '_', size: 1, code: 'Minus',
+    symbol: '-', altSymbol: '-', size: 1, code: 'Minus', shiftEn: '_', shiftRu: '_',
   },
   {
-    symbol: '=', altSymbol: '+', size: 1, code: 'Equal',
+    symbol: '=', altSymbol: '=', size: 1, code: 'Equal', shiftEn: '+', shiftRu: '+',
   },
   {
     symbol: 'Backspace', altSymbol: 'Backspace', size: 2, bg: 'dark', code: 'Backspace',
@@ -78,13 +78,13 @@ const keyboardConfig = [
     symbol: 'p', altSymbol: 'з', size: 1, code: 'KeyP', caps: true,
   },
   {
-    symbol: '[', altSymbol: 'х', size: 1, code: 'BracketLeft', caps: true,
+    symbol: '[', altSymbol: 'х', size: 1, code: 'BracketLeft', caps: true, shiftEn: '{',
   },
   {
-    symbol: ']', altSymbol: 'ъ', size: 1, code: 'BracketRight', caps: true,
+    symbol: ']', altSymbol: 'ъ', size: 1, code: 'BracketRight', caps: true, shiftEn: '}',
   },
   {
-    symbol: '\\', altSymbol: '\\', size: 1, code: 'Backslash',
+    symbol: '\\', altSymbol: '\\', size: 1, code: 'Backslash', shiftEn: '|', shiftRu: '/',
   },
   {
     symbol: 'Del', altSymbol: 'Del', size: 1, bg: 'dark', code: 'Delete',
@@ -120,10 +120,10 @@ const keyboardConfig = [
     symbol: 'l', altSymbol: 'д', size: 1, code: 'KeyL', caps: true,
   },
   {
-    symbol: ';', altSymbol: 'ж', size: 1, code: 'Semicolon', caps: true,
+    symbol: ';', altSymbol: 'ж', size: 1, code: 'Semicolon', caps: true, shiftEn: ':',
   },
   {
-    symbol: "'", altSymbol: 'э', size: 1, code: 'Quote', caps: true,
+    symbol: "'", altSymbol: 'э', size: 1, code: 'Quote', caps: true, shiftEn: '"',
   },
   {
     symbol: 'Enter', altSymbol: 'Enter', size: 2, bg: 'dark', code: 'Enter',
@@ -153,13 +153,13 @@ const keyboardConfig = [
     symbol: 'm', altSymbol: 'ь', size: 1, code: 'KeyM', caps: true,
   },
   {
-    symbol: ',', altSymbol: 'б', size: 1, code: 'Comma', caps: true,
+    symbol: ',', altSymbol: 'б', size: 1, code: 'Comma', caps: true, shiftEn: '<',
   },
   {
-    symbol: '.', altSymbol: 'ю', size: 1, code: 'Period', caps: true,
+    symbol: '.', altSymbol: 'ю', size: 1, code: 'Period', caps: true, shiftEn: '>',
   },
   {
-    symbol: '/', altSymbol: '.', size: 1, code: 'Slash',
+    symbol: '/', altSymbol: '.', size: 1, code: 'Slash', shiftEn: '?', shiftRu: ',',
   },
   {
     symbol: '▲', altSymbol: '▲', size: 1, bg: 'dark', code: 'ArrowUp',
@@ -206,13 +206,15 @@ export class Keyboard {
         bg: value.bg,
         code: value.code,
         caps: value.caps,
+        // shift: value.shift,
+        shiftEn: value.shiftEn,
+        shiftRu: value.shiftRu,
       };
 
       return new Button(data);
     });
 
     const buttonElements = this.keyboard.map((value) => {
-      // console.log(value.symbol);
       if (value.bg === 'dark') {
         value.button.classList.add('button-dark');
       }
@@ -222,13 +224,13 @@ export class Keyboard {
     });
 
     this.wrapper = document.createElement('div');
-    // this.wrapper.classList.add('keyboard');
+
     this.wrapper.append(...buttonElements);
 
     function clickBtn(event) {
       const textArea = document.querySelector('.textarea');
       const buttonActive = document.querySelectorAll('.button-active');
-      //   console.log(buttonActive[0]);
+
       buttonActive.forEach((el) => {
         el.classList.remove('click-active');
       });
@@ -244,10 +246,6 @@ export class Keyboard {
       }
     }
 
-    // const btn = new Button();
-    // const lng = btn.language;
-    // console.log(lng);
-
     this.wrapper.addEventListener('click', clickBtn);
     // ниже делаю ввод нажатых клавиш в textarea
     document.addEventListener('keydown', (event) => {
@@ -262,12 +260,10 @@ export class Keyboard {
         textArea.value += '';
       } else {
         const btnn = document.getElementById(`${event.code}`);
-        // console.log()
         textArea.value += btnn.innerText;
       }
       // ниже добавляю и удаляю анимацию кнопок при нажатии клавиш
       buttonActive.forEach((el) => {
-        // console.log(el.innerText);
         el.classList.remove('click-active');
         if (el.id === event.code && el.id !== 'CapsLock') {
           el.classList.add('click-active');
