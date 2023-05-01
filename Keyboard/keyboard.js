@@ -235,7 +235,7 @@ export class Keyboard {
         el.classList.remove('click-active');
       });
 
-      if (event.target.innerText === '⌞⌟') {
+      if (event.target.innerText === ' ') {
         textArea.value += ' ';
       } else if (event.target.innerText === 'Tab') {
         textArea.value += '    ';
@@ -250,18 +250,28 @@ export class Keyboard {
     // ниже делаю ввод нажатых клавиш в textarea
     document.addEventListener('keydown', (event) => {
       const textArea = document.querySelector('.textarea');
+
+      if (document.activeElement !== textArea) {
+        textArea.focus();
+      }
+      const selectionStartIndex = textArea.selectionStart;
       const buttonActive = document.querySelectorAll('.button-active');
 
-      if (event.key === '⌞⌟') {
-        textArea.value += ' ';
+      if (!(event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift' || event.key === 'Backspace' || event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Enter')) {
+        event.preventDefault();
+      }
+
+      if (event.key === ' ') {
+        // textArea.value += ' ';
+        textArea.value = `${textArea.value.substring(0, selectionStartIndex)} ${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.key === 'Tab') {
-        textArea.value += '    ';
+        textArea.value = `${textArea.value.substring(0, selectionStartIndex)}    ${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift' || event.key === 'Backspace' || event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Enter') {
         textArea.value += '';
       } else {
         buttonActive.forEach((el) => {
           if (el.id === event.code) {
-            textArea.value += el.innerText;
+            textArea.value = `${textArea.value.substring(0, selectionStartIndex)}${el.innerText}${textArea.value.substring(selectionStartIndex)}`;
           }
         });
         // const btnn = document.getElementById(`${event.code}`);
@@ -278,6 +288,8 @@ export class Keyboard {
           });
         }
       });
+      textArea.selectionStart = selectionStartIndex + 1;
+      textArea.selectionEnd = selectionStartIndex + 1;
     });
   }
 }

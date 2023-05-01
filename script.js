@@ -28,4 +28,4 @@ const app = Application();
 
 const body = document.querySelector('body');
 body.append(app);
-document.querySelector('textarea').addEventListener('keydown', (e) => e.preventDefault());
+// document.querySelector('textarea').addEventListener('keydown', (e) => e.preventDefault());
