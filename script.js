@@ -1,6 +1,5 @@
 import { Keyboard } from './Keyboard/keyboard.js';
 
-// const keyboard = new Keyboard();
 export class PageElement {
   constructor() {
     this.textarea = document.createElement('textarea');
@@ -15,11 +14,20 @@ function Application() {
   const container = document.createElement('div');
   container.className = 'app-container';
 
+  const infoContainer = document.createElement('div');
+
+  const infoFirstStr = document.createElement('p');
+  infoFirstStr.innerText = 'Клавиатура создана в операционной системе Windows';
+
+  const infoSecondStr = document.createElement('p');
+  infoSecondStr.innerText = 'Для переключения языка комбинация: левыe ctrl + alt';
+
   const pageElement = new PageElement();
   const keyboard = new Keyboard();
 
   pageElement.keyboardWrapper.append(keyboard.wrapper);
-  container.append(pageElement.textarea, pageElement.keyboardWrapper);
+  container.append(pageElement.textarea, pageElement.keyboardWrapper, infoContainer);
+  infoContainer.append(infoFirstStr, infoSecondStr);
 
   return container;
 }
@@ -28,4 +36,3 @@ const app = Application();
 
 const body = document.querySelector('body');
 body.append(app);
-// document.querySelector('textarea').addEventListener('keydown', (e) => e.preventDefault());

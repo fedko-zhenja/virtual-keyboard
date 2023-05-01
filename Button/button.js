@@ -6,19 +6,18 @@ export class Button {
     this.bg = data.bg;
     this.code = data.code;
     this.capsLock = data.caps;
-    // this.shift = data.shift;
     this.shiftEn = data.shiftEn;
     this.shiftRu = data.shiftRu;
 
     this.language = 'en';
 
-    if (data.onclick === undefined) {
-      this.onclick = () => {
-        console.log(this.symbol);
-      };
-    } else {
-      this.onclick = data.onclick;
-    }
+    // if (data.onclick === undefined) {
+    //   this.onclick = () => {
+    //     console.log(this.symbol);
+    //   };
+    // } else {
+    //   this.onclick = data.onclick;
+    // }
 
     this.button = document.createElement('button');
     this.button.innerText = this.symbol;
@@ -68,7 +67,6 @@ export class Button {
         } else if (this.language === 'ru') {
           this.button.innerText = this.altSymbol.toLowerCase();
         }
-        // this.button.innerText = this.symbol.toLowerCase();
         event.target.classList.remove('active-caps');
         this.caps = false;
       }
@@ -117,9 +115,7 @@ export class Button {
             this.button.innerText = this.symbol.toUpperCase();
           }
         }
-        // if (this.shift !== undefined) {
-        //   this.button.innerText = this.shift;
-        // }
+
         if (this.shiftEn !== undefined) {
           this.button.innerText = this.shiftEn;
         }
@@ -131,9 +127,7 @@ export class Button {
             this.button.innerText = this.altSymbol.toUpperCase();
           }
         }
-        // if (this.shift !== undefined) {
-        //   this.button.innerText = this.shift;
-        // }
+
         if (this.shiftRu !== undefined) {
           this.button.innerText = this.shiftRu;
         }
@@ -161,9 +155,7 @@ export class Button {
             this.button.innerText = this.altSymbol.toLowerCase();
           }
         }
-        // if (this.shift !== undefined) {
-        //   this.button.innerText = this.symbol;
-        // }
+
         if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
           this.button.innerText = this.altSymbol;
         }
@@ -179,9 +171,7 @@ export class Button {
             this.button.innerText = this.symbol.toUpperCase();
           }
         }
-        // if (this.shift !== undefined) {
-        //   this.button.innerText = this.shift;
-        // }
+
         if (this.shiftEn !== undefined) {
           this.button.innerText = this.shiftEn;
         }
@@ -200,7 +190,6 @@ export class Button {
     });
 
     document.addEventListener('mouseup', (event) => {
-      // console.log(event.target.innerText);
       if (event.target.innerText === 'Shift' && this.language === 'en') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -209,9 +198,7 @@ export class Button {
             this.button.innerText = this.symbol.toLowerCase();
           }
         }
-        // if (this.shift !== undefined) {
-        //   this.button.innerText = this.symbol;
-        // }
+
         if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
           this.button.innerText = this.symbol;
         }
@@ -223,9 +210,7 @@ export class Button {
             this.button.innerText = this.altSymbol.toLowerCase();
           }
         }
-        // if (this.shift !== undefined) {
-        //   this.button.innerText = this.symbol;
-        // }
+
         if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
           this.button.innerText = this.altSymbol;
         }

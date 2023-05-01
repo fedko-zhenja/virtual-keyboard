@@ -1,5 +1,4 @@
 import { Button } from '../Button/button.js';
-// import { PageElement } from "../script.js"
 
 const keyboardConfig = [
   {
@@ -206,7 +205,6 @@ export class Keyboard {
         bg: value.bg,
         code: value.code,
         caps: value.caps,
-        // shift: value.shift,
         shiftEn: value.shiftEn,
         shiftRu: value.shiftRu,
       };
@@ -229,21 +227,29 @@ export class Keyboard {
 
     function clickBtn(event) {
       const textArea = document.querySelector('.textarea');
+
+      if (document.activeElement !== textArea) {
+        textArea.focus();
+      }
+      const selectionStartIndex = textArea.selectionStart;
+
       const buttonActive = document.querySelectorAll('.button-active');
 
       buttonActive.forEach((el) => {
         el.classList.remove('click-active');
       });
 
-      if (event.target.innerText === ' ') {
-        textArea.value += ' ';
+      if (event.target.innerText === '⌞⌟') {
+        textArea.value = `${textArea.value.substring(0, selectionStartIndex)} ${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.target.innerText === 'Tab') {
-        textArea.value += '    ';
+        textArea.value = `${textArea.value.substring(0, selectionStartIndex)}    ${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.target.innerText === 'CapsLock' || event.target.innerText === 'Ctrl' || event.target.innerText === 'Alt' || event.target.innerText === 'Shift' || event.target.innerText === 'Backspace' || event.target.innerText === '▶' || event.target.innerText === '▼' || event.target.innerText === '◀' || event.target.innerText === '▲' || event.target.innerText === 'Del' || event.target.innerText === 'Enter') {
         textArea.value += '';
       } else {
-        textArea.value += event.target.innerText;
+        textArea.value = `${textArea.value.substring(0, selectionStartIndex)}${event.target.innerText}${textArea.value.substring(selectionStartIndex)}`;
       }
+      textArea.selectionStart = selectionStartIndex + 1;
+      textArea.selectionEnd = selectionStartIndex + 1;
     }
 
     this.wrapper.addEventListener('click', clickBtn);
@@ -262,7 +268,6 @@ export class Keyboard {
       }
 
       if (event.key === ' ') {
-        // textArea.value += ' ';
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)} ${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.key === 'Tab') {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)}    ${textArea.value.substring(selectionStartIndex)}`;
@@ -274,8 +279,6 @@ export class Keyboard {
             textArea.value = `${textArea.value.substring(0, selectionStartIndex)}${el.innerText}${textArea.value.substring(selectionStartIndex)}`;
           }
         });
-        // const btnn = document.getElementById(`${event.code}`);
-        // textArea.value += btnn.innerText;
       }
       // ниже добавляю и удаляю анимацию кнопок при нажатии клавиш
       buttonActive.forEach((el) => {
