@@ -291,6 +291,8 @@ export class Keyboard {
         buttonActive.forEach((el) => {
           if (el.id === event.code) {
             textArea.value = `${textArea.value.substring(0, selectionStartIndex)}${el.innerText}${textArea.value.substring(selectionStartIndex)}`;
+            textArea.selectionStart = selectionStartIndex + 1;
+            textArea.selectionEnd = selectionStartIndex + 1;
           }
         });
       }
@@ -305,8 +307,6 @@ export class Keyboard {
           });
         }
       });
-      textArea.selectionStart = selectionStartIndex + 1;
-      textArea.selectionEnd = selectionStartIndex + 1;
     });
   }
 }

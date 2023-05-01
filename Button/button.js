@@ -9,18 +9,19 @@ export class Button {
     this.shiftEn = data.shiftEn;
     this.shiftRu = data.shiftRu;
 
-    this.language = 'en';
-
-    // if (data.onclick === undefined) {
-    //   this.onclick = () => {
-    //     console.log(this.symbol);
-    //   };
-    // } else {
-    //   this.onclick = data.onclick;
-    // }
+    if (localStorage.getItem('language') === null) {
+      this.language = 'en';
+    } else {
+      this.language = localStorage.getItem('language');
+    }
 
     this.button = document.createElement('button');
-    this.button.innerText = this.symbol;
+
+    if (this.language === 'ru') {
+      this.button.innerText = this.altSymbol;
+    } else {
+      this.button.innerText = this.symbol;
+    }
     this.button.style.width = `${this.size * 50}px`;
     this.button.style.height = '50px';
 
@@ -73,7 +74,7 @@ export class Button {
     });
     // ниже меняю язык
     let altShift = [];
-    this.language = 'en';
+
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Control' || event.key === 'Alt') {
         altShift.push(event.key);
@@ -94,6 +95,7 @@ export class Button {
 
         altShift = [];
         this.language = 'ru';
+        localStorage.setItem('language', 'ru');
       } else if (altShift.length === 2 && this.language === 'ru') {
         if (this.caps === false) {
           this.button.innerText = this.symbol;
@@ -103,6 +105,7 @@ export class Button {
 
         altShift = [];
         this.language = 'en';
+        localStorage.setItem('language', 'en');
       }
     });
     // нажатие на shift на клавиатуре физической
@@ -122,7 +125,6 @@ export class Button {
 
         const shiftKey = document.getElementById(`${event.code}`);
         shiftKey.classList.add('shift-active');
-        // console.log(shiftKey);
       } else if (event.key === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -189,7 +191,6 @@ export class Button {
           this.button.innerText = this.shiftEn;
         }
 
-        // const shiftKey = document.getElementById(`${event.code}`);
         event.target.classList.add('shift-active');
       } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
@@ -203,14 +204,12 @@ export class Button {
           this.button.innerText = this.shiftRu;
         }
 
-        // const shiftKey = document.getElementById(`${event.code}`);
         event.target.classList.add('shift-active');
       }
     });
 
     document.addEventListener('mouseup', (event) => {
       if (event.target.innerText === 'Shift' && this.language === 'en') {
-        // console.log(event.target)
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
             this.button.innerText = this.symbol.toUpperCase();
@@ -223,7 +222,6 @@ export class Button {
           this.button.innerText = this.symbol;
         }
 
-        // const shiftKey = document.getElementById(`${event.code}`);
         event.target.classList.remove('shift-active');
       } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
@@ -238,7 +236,6 @@ export class Button {
           this.button.innerText = this.altSymbol;
         }
 
-        // const shiftKey = document.getElementById(`${event.code}`);
         event.target.classList.remove('shift-active');
       }
     });
