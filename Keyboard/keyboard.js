@@ -243,8 +243,22 @@ export class Keyboard {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)} ${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.target.innerText === 'Tab') {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)}    ${textArea.value.substring(selectionStartIndex)}`;
-      } else if (event.target.innerText === 'CapsLock' || event.target.innerText === 'Ctrl' || event.target.innerText === 'Alt' || event.target.innerText === 'Shift' || event.target.innerText === 'Backspace' || event.target.innerText === '▶' || event.target.innerText === '▼' || event.target.innerText === '◀' || event.target.innerText === '▲' || event.target.innerText === 'Del' || event.target.innerText === 'Enter') {
+      } else if (event.target.innerText === 'CapsLock' || event.target.innerText === 'Ctrl' || event.target.innerText === 'Alt' || event.target.innerText === 'Shift' || event.target.innerText === 'Win') {
         textArea.value += '';
+      } else if (event.target.innerText === 'Enter') {
+        textArea.value = `${textArea.value.substring(0, selectionStartIndex)}\n${textArea.value.substring(selectionStartIndex)}`;
+      } else if (event.target.innerText === 'Backspace') {
+        const textAreaSplit = textArea.value.split('');
+        textAreaSplit.splice(selectionStartIndex - 1, 1);
+        const textAreaJoin = textAreaSplit.join('');
+
+        textArea.value = textAreaJoin;
+      } else if (event.target.innerText === 'Del') {
+        const textAreaSplit = textArea.value.split('');
+        textAreaSplit.splice(textArea.selectionStart, 1);
+        const textAreaJoin = textAreaSplit.join('');
+
+        textArea.value = textAreaJoin;
       } else {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)}${event.target.innerText}${textArea.value.substring(selectionStartIndex)}`;
       }
@@ -263,7 +277,7 @@ export class Keyboard {
       const selectionStartIndex = textArea.selectionStart;
       const buttonActive = document.querySelectorAll('.button-active');
 
-      if (!(event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift' || event.key === 'Backspace' || event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Enter')) {
+      if (!(event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift' || event.key === 'Backspace' || event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Enter' || event.key === 'Meta')) {
         event.preventDefault();
       }
 
@@ -271,7 +285,7 @@ export class Keyboard {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)} ${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.key === 'Tab') {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)}    ${textArea.value.substring(selectionStartIndex)}`;
-      } else if (event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift' || event.key === 'Backspace' || event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Enter') {
+      } else if (event.key === 'CapsLock' || event.key === 'Control' || event.key === 'Alt' || event.key === 'AltGraph' || event.key === 'Shift' || event.key === 'Backspace' || event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Enter' || event.key === 'Meta') {
         textArea.value += '';
       } else {
         buttonActive.forEach((el) => {

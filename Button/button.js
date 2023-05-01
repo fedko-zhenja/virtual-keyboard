@@ -119,6 +119,10 @@ export class Button {
         if (this.shiftEn !== undefined) {
           this.button.innerText = this.shiftEn;
         }
+
+        const shiftKey = document.getElementById(`${event.code}`);
+        shiftKey.classList.add('shift-active');
+        // console.log(shiftKey);
       } else if (event.key === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -131,6 +135,9 @@ export class Button {
         if (this.shiftRu !== undefined) {
           this.button.innerText = this.shiftRu;
         }
+
+        const shiftKey = document.getElementById(`${event.code}`);
+        shiftKey.classList.add('shift-active');
       }
     });
 
@@ -147,6 +154,9 @@ export class Button {
         if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
           this.button.innerText = this.symbol;
         }
+
+        const shiftKey = document.getElementById(`${event.code}`);
+        shiftKey.classList.remove('shift-active');
       } else if (event.key === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -159,6 +169,9 @@ export class Button {
         if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
           this.button.innerText = this.altSymbol;
         }
+
+        const shiftKey = document.getElementById(`${event.code}`);
+        shiftKey.classList.remove('shift-active');
       }
     });
     // нажатие на shift на клавиатуре виртуальной
@@ -175,6 +188,9 @@ export class Button {
         if (this.shiftEn !== undefined) {
           this.button.innerText = this.shiftEn;
         }
+
+        // const shiftKey = document.getElementById(`${event.code}`);
+        event.target.classList.add('shift-active');
       } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -186,11 +202,15 @@ export class Button {
         if (this.shiftRu !== undefined) {
           this.button.innerText = this.shiftRu;
         }
+
+        // const shiftKey = document.getElementById(`${event.code}`);
+        event.target.classList.add('shift-active');
       }
     });
 
     document.addEventListener('mouseup', (event) => {
       if (event.target.innerText === 'Shift' && this.language === 'en') {
+        // console.log(event.target)
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
             this.button.innerText = this.symbol.toUpperCase();
@@ -202,6 +222,9 @@ export class Button {
         if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
           this.button.innerText = this.symbol;
         }
+
+        // const shiftKey = document.getElementById(`${event.code}`);
+        event.target.classList.remove('shift-active');
       } else if (event.target.innerText === 'Shift' && this.language === 'ru') {
         if (this.capsLock !== undefined) {
           if (this.caps === true) {
@@ -214,6 +237,9 @@ export class Button {
         if (this.shiftEn !== undefined || this.shiftRu !== undefined) {
           this.button.innerText = this.altSymbol;
         }
+
+        // const shiftKey = document.getElementById(`${event.code}`);
+        event.target.classList.remove('shift-active');
       }
     });
   }

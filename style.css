@@ -32,7 +32,6 @@
 
 .button-active:active {
     background-color: darkseagreen;
-    /* color: white; */
 }
 
 .button-active:hover {
@@ -40,7 +39,6 @@
 }
 
 .click-active {
-    /* background-color: darkseagreen; */
     animation-duration: 0.25s;
     animation-name: anima;
 }
@@ -58,3 +56,8 @@
   .active-caps {
     background-color: darkseagreen;
   }
+
+
+  .shift-active {
+    background-color: darkseagreen;
+}
