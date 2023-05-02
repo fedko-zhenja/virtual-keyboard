@@ -248,11 +248,13 @@ export class Keyboard {
       } else if (event.target.innerText === 'Enter') {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)}\n${textArea.value.substring(selectionStartIndex)}`;
       } else if (event.target.innerText === 'Backspace') {
-        const textAreaSplit = textArea.value.split('');
-        textAreaSplit.splice(selectionStartIndex - 1, 1);
-        const textAreaJoin = textAreaSplit.join('');
+        if (selectionStartIndex !== 0) {
+          const textAreaSplit = textArea.value.split('');
+          textAreaSplit.splice(selectionStartIndex - 1, 1);
+          const textAreaJoin = textAreaSplit.join('');
 
-        textArea.value = textAreaJoin;
+          textArea.value = textAreaJoin;
+        }
       } else if (event.target.innerText === 'Del') {
         const textAreaSplit = textArea.value.split('');
         textAreaSplit.splice(textArea.selectionStart, 1);
@@ -262,8 +264,22 @@ export class Keyboard {
       } else {
         textArea.value = `${textArea.value.substring(0, selectionStartIndex)}${event.target.innerText}${textArea.value.substring(selectionStartIndex)}`;
       }
-      textArea.selectionStart = selectionStartIndex + 1;
-      textArea.selectionEnd = selectionStartIndex + 1;
+
+      if (event.target.innerText === 'Del') {
+        textArea.selectionStart = selectionStartIndex;
+        textArea.selectionEnd = selectionStartIndex;
+      } else if (event.target.innerText === 'Backspace') {
+        if (selectionStartIndex === 0) {
+          textArea.selectionStart = selectionStartIndex;
+          textArea.selectionEnd = selectionStartIndex;
+        } else {
+          textArea.selectionStart = selectionStartIndex - 1;
+          textArea.selectionEnd = selectionStartIndex - 1;
+        }
+      } else {
+        textArea.selectionStart = selectionStartIndex + 1;
+        textArea.selectionEnd = selectionStartIndex + 1;
+      }
     }
 
     this.wrapper.addEventListener('click', clickBtn);
